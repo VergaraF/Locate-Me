@@ -30,7 +30,7 @@
                                     <navigationItem title="Locate Me" id="YjK-1Q-Xqs"/>
                                 </items>
                             </navigationBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lbt-dv-UXC">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lbt-dv-UXC">
                                 <rect key="frame" x="-8" y="325" width="391" height="342"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lbt-dv-UXC" secondAttribute="height" multiplier="383:335" id="Lcz-6g-lbX"/>
@@ -72,7 +72,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="address Place holder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgv-Xz-AbT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="address Place holder" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgv-Xz-AbT">
                                 <rect key="frame" x="20" y="243" width="335" height="63"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -91,6 +91,15 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="addressLabel" destination="Lgv-Xz-AbT" id="cwc-cb-gb0"/>
+                        <outlet property="altLabel" destination="nKL-WN-WLg" id="qtK-W1-l3e"/>
+                        <outlet property="courseLabel" destination="ZXQ-j1-fOb" id="Vcb-Q7-se3"/>
+                        <outlet property="latLabel" destination="oF5-H0-fIR" id="DXW-ri-mDE"/>
+                        <outlet property="lonLabel" destination="6gd-TU-4tD" id="bY9-ks-5uu"/>
+                        <outlet property="map" destination="lbt-dv-UXC" id="zyk-06-LJL"/>
+                        <outlet property="speedLabel" destination="NU7-uh-D6w" id="UT9-JP-vP1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

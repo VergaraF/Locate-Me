@@ -7,11 +7,32 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
+    @IBOutlet var latLabel: UILabel!
+    @IBOutlet var lonLabel: UILabel!
+    @IBOutlet var altLabel: UILabel!
+    @IBOutlet var courseLabel: UILabel!
+    @IBOutlet var speedLabel: UILabel!
+    @IBOutlet var addressLabel: UILabel!
+    
+    @IBOutlet var map: MKMapView!
+    
+    var locationManager = CLLocationManager()
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
