@@ -66,9 +66,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         latLabel.text    = "Latitude : " + String(userLocation.coordinate.latitude)
         lonLabel.text    = "Longitude: " + String(userLocation.coordinate.longitude)
-        latLabel.text    = "Latitude : " + String(userLocation.altitude)
-        courseLabel.text = "Course : " + String(userLocation.course)
-        speedLabel.text  = "Speed : " + String(userLocation.speed)
+        altLabel.text    = "Altitude : " + String(userLocation.altitude)
+        courseLabel.text = "Course   : " + String(userLocation.course)
+        speedLabel.text  = "Speed    : " + String(userLocation.speed) + " mps"
  
         
     }
