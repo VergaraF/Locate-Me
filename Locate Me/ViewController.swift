@@ -64,8 +64,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func setLabels(locations: [CLLocation]){
         let userLocation : CLLocation = locations[0]
         
-        latLabel.text = latLabel.text! + ": " + String(userLocation.coordinate.latitude)
-        lonLabel.text = lonLabel.text! + ": " + String(userLocation.coordinate.longitude)
+        latLabel.text = "Latitude : " + String(userLocation.coordinate.latitude)
+        lonLabel.text = "Longitude: " + String(userLocation.coordinate.longitude)
 
         
     }
