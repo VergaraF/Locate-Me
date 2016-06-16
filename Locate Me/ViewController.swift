@@ -102,7 +102,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
       //  print(place.addressDictionary?["FormattedAddressLines"]?[0] as? String)
         var address = ""
         for  i in 0..<3{
-            address += String(place.addressDictionary?["FormattedAddressLines"]?[i] as? String) + "\n"
+            //I am force unwrapping the string. it beheaves as expecte but is NOT DESIRED. TODO: Find a better solution
+            address += String(UTF8String: (place.addressDictionary?["FormattedAddressLines"]?[i] as? String)!)! + "\n"
         }
         return address
   }
