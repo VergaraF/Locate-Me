@@ -81,6 +81,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
               //  print(self.getAddress(pm))
             //    print(pm.addressDictionary<"City">)
                 let address = self.getAddress(pm)
+                print(address)
                 self.addressLabel.text = address
             }else {
                 print("Problem with the data received from geocoder")
@@ -101,9 +102,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
       //  print((place.addressDictionary?["formattedAddressLine"]![0]? as? String)! + "/n/n/n/")
       //  print(place.addressDictionary?["FormattedAddressLines"]?[0] as? String)
         var address = ""
+        //magic number to be erased. 3 = max val for given dictionary
         for  i in 0..<3{
             //I am force unwrapping the string. it beheaves as expecte but is NOT DESIRED. TODO: Find a better solution
-            address += String(UTF8String: (place.addressDictionary?["FormattedAddressLines"]?[i] as? String)!)! + "\n"
+            address += String(UTF8String: (place.addressDictionary?["FormattedAddressLines"]?[i] as? String)!)!
+            if i != 2{
+                address += "\n"
+            }
         }
         return address
   }
