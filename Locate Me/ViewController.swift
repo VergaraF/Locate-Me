@@ -69,9 +69,39 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         altLabel.text    = "Altitude : " + String(userLocation.altitude)
         courseLabel.text = "Course   : " + String(userLocation.course)
         speedLabel.text  = "Speed    : " + String(userLocation.speed) + " mps"
+        
+        CLGeocoder().reverseGeocodeLocation(userLocation) { (placemarks, error) in
+            if error != nil {
+                print("Reverse geocoder failed with error" + error!.localizedDescription)
+                return
+            }
+            
+            if placemarks!.count > 0 {
+                let pm = placemarks![0]
+              //  print(self.getAddress(pm))
+            //    print(pm.addressDictionary<"City">)
+             //   let address = self.getAddress(pm)
+                self.addressLabel.text = String(pm.addressDictionary?["FormattedAddressLines"]?[3] as? String)
+            }else {
+                print("Problem with the data received from geocoder")
+                self.addressLabel.text = "No address found"
+            }
+            
+        }
+        
+        
  
         
     }
+    
+  //  func getAddress(place: CLPlacemark) -> String{
+   //     print("start/n/n")
+    //    print(place)
+    //    print("end/n/n")
+      //  print((place.addressDictionary?["formattedAddressLine"]![0]? as? String)! + "/n/n/n/")
+      //  print(place.addressDictionary?["FormattedAddressLines"]?[0] as? String)
+  //      return String(place.addressDictionary?["FormattedAddressLines"]?[0] as? String)
+ //   }
 
 
 }
