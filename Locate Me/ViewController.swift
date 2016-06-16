@@ -80,8 +80,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 let pm = placemarks![0]
               //  print(self.getAddress(pm))
             //    print(pm.addressDictionary<"City">)
-             //   let address = self.getAddress(pm)
-                self.addressLabel.text = String(pm.addressDictionary?["FormattedAddressLines"]?[3] as? String)
+                let address = self.getAddress(pm)
+                self.addressLabel.text = address
             }else {
                 print("Problem with the data received from geocoder")
                 self.addressLabel.text = "No address found"
@@ -94,14 +94,18 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
     }
     
-  //  func getAddress(place: CLPlacemark) -> String{
+    func getAddress(place: CLPlacemark) -> String{
    //     print("start/n/n")
     //    print(place)
     //    print("end/n/n")
       //  print((place.addressDictionary?["formattedAddressLine"]![0]? as? String)! + "/n/n/n/")
       //  print(place.addressDictionary?["FormattedAddressLines"]?[0] as? String)
-  //      return String(place.addressDictionary?["FormattedAddressLines"]?[0] as? String)
- //   }
+        var address = ""
+        for  i in 0..<3{
+            address += String(place.addressDictionary?["FormattedAddressLines"]?[i] as? String) + "\n"
+        }
+        return address
+  }
 
 
 }
